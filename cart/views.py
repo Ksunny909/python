@@ -13,6 +13,7 @@ def cart_add(request, doctor_id):
     cd = form.cleaned_data
     cart.add(doctor=doctor, quantity=cd['quantity'], update_quantity=cd['update'])
   return redirect('cart:cart_detail')
+
 #def doctor_detail(request, id, slug):
 #    doctor = get_object_or_404(Doctor, id=id, slug=slug, available=True)
 #    cart_doctor_form = CartAddDoctorForm()
@@ -24,4 +25,6 @@ def cart_remove(request, doctor_id):
   return redirect('cart:cart_detail')
 def cart_detail(request):
     cart = Cart(request)
+    for item in cart:
+      item['update_quantity_form'] = CartAddDoctorForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
