@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    {% block content %}
+    <h1>Список записей:</h1>
+    <h2>{{ list_of_all_records.0.patient }}</h2>
+    <table>
+        <tr>
+            <th>Запись</th>
+            <th>Дата записи</th>
+        </tr>
+        {% for record in list_of_all_records %}
+        <tr>
+             <td>{{ record.doctor }}</td>
+             <td>{{ record.record_date }}</td>
+         </tr>
+        {% endfor %}
+    </table>
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+for item in cart:
+  item['update_quantity_form'] = CartAddDoctorForm(initial={'quantity': item['quantity'], 'update': True})
+<form action="{% url 'cart:cart_add' doctor.id %}" method="post">
+  {{ item.update_quantity_form.quantity }}
+  {{ item.update_quantity_form.update }}
+  <input type="submit" value="Update">
+  {% csrf_token %}
+</form>
+
+</body>
+</html>

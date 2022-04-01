@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+    {% block content %}
+    <h1>Список всех записей:</h1>
+     <table>
+         <tr>
+             <th>Номер записи</th>
+             <th>Врач</th>
+             <th>Дата приема</th>
+             <th>Пациент</th>
+         </tr>
+         {% for record in list_of_all_records %}
+         <tr>
+             <td>{{ record.record_id }}</td>
+             <td>{{ record.doctor }}</td>
+             <td>{{ record.record_date }}</td>
+             <td>{{ record.patient }}</td>
+         </tr>
+        {% endfor %}
+     </table>
+    {% endblock content %}
+    <form action="{% url 'search' %}" method="GET">
+        {% csrf_token %}
+        <input name="q" type="text" placeholder="Введите имя или фамилию...">
+    </form>
+</body>
+</html>
