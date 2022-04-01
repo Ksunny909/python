@@ -13,6 +13,7 @@
         {% csrf_token %}
         <input type="submit" value="Add to cart">
     </form>
+    <a href="{% url 'records:record_create' %}" class="button">Checkout</a>
 
 
 {% endblock %}
