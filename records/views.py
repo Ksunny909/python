@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from .forms import RecordCreateForm
 from .models import RecordItem
+#from .tasks import record_created
 def record_create(request):
   cart = Cart(request)
   if request.method == 'POST':
@@ -16,3 +17,6 @@ def record_create(request):
     else:
       form = RecordCreateForm()
       return render(request, 'records/record/create.html', {'cart': cart, 'form': form})
+  #cart.clear()
+# launch asynchronous task
+ # record_created.delay(record.id)

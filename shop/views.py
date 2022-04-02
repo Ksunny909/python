@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
-from shop.models import Patient, Record
+from shop.models import Patient, Record, Doctor
 from django.db.models import Q
 from cart.forms import CartAddDoctorForm
 from django.shortcuts import render, get_object_or_404
