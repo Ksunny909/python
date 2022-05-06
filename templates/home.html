@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <title>Мой Магазин</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'img/cat2.jpg' %}" type="image/x-icon">
 </head>
 <body>
     {% if user.is_authenticated %}
-        <h1>Привет, {{ user.username }} ! Это мой магазин!</h1>
+        <h1>Привет, {{ user.username }}! Это мой больница!</h1>
     {% else %}
         <p>Вы не вошли на сайт</p>
         <a href="{% url 'login' %}">Войти</a>
-  {% endif %}
 
-    <img src="{% static 'img/cat2.jpg' %}" alt="Django">
+  {% endif %}
+       // <img  src="{% static 'img/cat2.jpg' %}" alt="Django">
+
 
 </body>
 <script src="{% static 'js/script.js' %}" ></script>

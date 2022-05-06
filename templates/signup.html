@@ -6,17 +6,110 @@
 </head>
 <body>
 {% block content %}
-    <h2>Регистрация нового пользователя</h2>
-    <form method="post">
-      {% csrf_token %}
-      <label for="{{ form.username.id_for_label }}">Имя:</label>
-      {{ form.username }}
-      <label for="{{ form.password1.id_for_label }}">Пароль:</label>
-      {{ form.password1 }}
-      <label for="{{ form.password2.id_for_label }}">Подтвердите пароль:</label>
-      {{ form.password2 }}
-      <button type="submit">Зарегистрировать</button>
+<div class="cnt">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="title"> Регистрация </div>
+
+      <div class="input">
+          <label for="{{ form.username.id_for_label }}">Фамилия:</label><br/>
+          {{ form.username }}
+      </div>
+      <div class="input">
+          <label for="{{ form.username.id_for_label }}">Имя:</label><br/>
+          {{ form.username }}
+      </div>
+
+      <input class="input" type="tel" id="tel" name="tel" placeholder="Введите ваш телефон">
+      <div class="input">
+          <label for="{{ form.password1.id_for_label }}">Пароль:</label><br/>
+          {{ form.password1 }}
+      </div>
+      <div class="input">
+          <label for="{{ form.password2.id_for_label }}">Подтвердите пароль:</label><br/>
+          {{ form.password2 }}
+      </div>
+        <button class="btn" type="submit">Продолжить</button>
     </form>
+</div>
+
 {% endblock content %}
 </body>
 </html>
+
+<style>
+*{
+font-family: sans-serif;
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+.cnt {
+max-width: 500px;
+height: 100vh;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.form {
+display: flex;
+flex-direction: column;
+align-items: center;
+background: #EBF9F7;
+width: 100%;
+}
+
+.input {
+background: #fff;
+width: 320px;
+padding: 16px;
+margin-bottom: 20px;
+border: none;
+font-size: 20px;
+line-height: 24px;
+}
+
+.title{
+width: 100%;
+padding: 30px 0;
+font-size: 32px;
+line-height: 39px;
+background: #1DD7C0;
+color: #fff;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.btn {
+font-size: 24px;
+line-height: 29px;
+padding: 15px 20px;
+background: #1DD7C0;
+margin: 10px 0;
+color: #fff;
+border: none;
+}
+.btn:hover {
+background: #1996A0;
+}
+</style>
+
+
+
+<!--<h2>Регистрация нового пользователя</h2>-->
+<!--    <form method="post">-->
+<!--      {% csrf_token %}-->
+<!--      <label for="{{ form.username.id_for_label }}">Имя:</label>-->
+<!--      {{ form.username }}-->
+<!--      <label for="{{ form.username.id_for_label }}">Фамилия:</label>-->
+<!--      {{ form.username }}-->
+
+<!--      <input type="tel" id="tel" name="tel" placeholder="Введите ваш телефон">-->
+<!--      <label for="{{ form.password1.id_for_label }}">Пароль:</label>-->
+<!--      {{ form.password1 }}-->
+<!--      <label for="{{ form.password2.id_for_label }}">Подтвердите пароль:</label>-->
+<!--      {{ form.password2 }}-->
+<!--      <button type="submit">Зарегистрировать</button>-->
+<!--    </form>-->

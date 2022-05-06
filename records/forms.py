@@ -5,4 +5,4 @@ from .models import Record
 class RecordCreateForm(forms.ModelForm):
   class Meta:
     model = Record
-    fields = ['first_name', 'last_name', 'email']
+    fields = ['last_name', 'first_name', 'email']

@@ -19,4 +19,3 @@ def record_create(request):
       return render(request, 'records/record/create.html', {'cart': cart, 'form': form})
   #cart.clear()
 # launch asynchronous task
- # record_created.delay(record.id)
