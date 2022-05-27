@@ -5,19 +5,260 @@
     <meta charset="UTF-8">
     <title>Мой Магазин</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
-    <link rel="shortcut icon" href="{% static 'img/cat2.jpg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/med.jpg' %}" type="image/x-icon">
 </head>
 <body>
+    <nav class="navbar">
+		<div class="container">
+			<div class="navbar-block">
+				<div class="navbar__logo">
+					<img src="{% static 'img/med.jpg' %}" alt="Logo">
+				</div>
+				<div class="navbar__info">
+					<div class="navbar__contacts">
+						<span class="navbar__address"> Томск, Вершинина, 48</span>
+                        <span class="navbar__text"> Горячая линия</span>
+                        <a href="tel:+7(951)615-70-53" class="navbar__phone" style="background: #1DD7C0">+7(951)615-70-53</a>
+					</div>
+<!--					<button class="button navbar__button" id="button">Перезвоните мне</button>-->
+				</div>
+			</div>
+		</div>
+	</nav>
     {% if user.is_authenticated %}
-        <h1>Привет, {{ user.username }}! Это мой больница!</h1>
+        <h1>Добрый день, {{ user.username }}! </h1>
+     <section>
+        <div class="hero">
+            <div class="container">
+                <div class="hero-block">
+                    <div class="hero-text">
+                        <h1 class="hero-text__title">
+                            Управление записями
+                        </h1>
+                        <button class="btn hero__button" id="button1">Запись на прием</button>
+                        <button class="btn hero__button" id="button2">Расписание врачей</button>
+                        <button class="btn hero__button" id="button3">Личный кабинет</button>
+<!--                        <span class="hero-text__subtitle">-->
+<!--                            с гарантией качества, прописанной в договоре-->
+<!--                        </span>-->
+<!--                        <ul class="hero-list">-->
+<!--                            <li class="hero-list__item">-->
+<!--                                <div class="hero-list__image">-->
+<!--                                    <img src="img/hero/clock.png" alt="clock">-->
+<!--                                </div>-->
+<!--                                <span class="hero-list__text">Точно соблюдаем сроки</span>-->
+<!--                            </li>-->
+<!--                            <li class="hero-list__item">-->
+<!--                                <div class="hero-list__image">-->
+<!--                                    <img src="img/hero/calculator.png" alt="calculator">-->
+<!--                                </div>-->
+<!--                                <span class="hero-list__text">Рассчитаем смету на работы и материалы в день обращения</span>-->
+<!--                            </li>-->
+<!--                            <li class="hero-list__item">-->
+<!--                                <div class="hero-list__image">-->
+<!--                                    <img src="img/hero/paint-board.png" alt="paint-board">-->
+<!--                                </div>-->
+
+<!--                                <span class="hero-list__text">Предложим более 100 вариантов исполнения дизайна Вашего жилья</span>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+                    </div>
+                    <div class="hero-news">
+                     <h1 class="hero-news__title">
+                            Новости
+                     </h1>
+                        <span class="new"> Как сообщает стопкоронавирус.рф, за сутки в Томской области выявили 81 новый случай заражения коронавирусной инфекцией, за все время — 129 968. Также более 28 тысяч случаев выявлено в Северске. Госпитализировано за сутки в регионе 8 человек. Выздоровели после коронавируса в Томской области 127 575 пациентов, за сутки из них выписаны 103 человека, следует из официальной статистики. Причиной смерти коронавирусная инфекция в Томской области стала, по официальным данным штаба, для 824 человек.</span>
+                </div>
+<!--                    <span class="hero-list__text">Рассчитаем смету на работы и материалы в день обращения</span>-->
+                </div>
+            </div>
+        </div>
+    </section>
     {% else %}
         <p>Вы не вошли на сайт</p>
         <a href="{% url 'login' %}">Войти</a>
 
+
   {% endif %}
-       // <img  src="{% static 'img/cat2.jpg' %}" alt="Django">
+<!--       // <img  src="{% static 'img/cat2.jpg' %}" alt="Django">-->
 
 
 </body>
 <script src="{% static 'js/script.js' %}" ></script>
 </html>
+
+<style>
+    *{
+         background: #EBF9F7;
+    }
+    .container{
+	    width: auto;
+	    margin: auto;
+
+	}
+	.navbar__text {
+	    color: red;
+	     display: flex;
+        flex-direction: column;
+        background: #1DD7C0;
+
+	}
+    .navbar{
+        padding: 8px 0;
+        width: auto;
+        background: #1DD7C0;
+    }
+    .navbar__contacts{
+        margin-right: 50px;
+        background: #1DD7C0;
+    }
+    .navbar-block{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #1DD7C0;
+    }
+
+    .navbar__info{
+        display: flex;
+        align-items: center;
+        text-align: right;
+        background: #1DD7C0;
+    }
+    .navbar__address{
+        display: flex;
+        flex-direction: column;
+        background: #1DD7C0;
+    }
+    .navbar__logo{
+        height: 59px;
+        width: 59px;
+        display: flex;
+        margin-left: 50px;
+        background: #1DD7C0;
+    }
+<!--    .navbar__button{-->
+<!--        margin-left: 30px;-->
+<!--        border-radius: 10px;-->
+<!--        background-color: #ffd200;-->
+<!--        border: none;-->
+<!--        padding: 18px 30px;-->
+<!--        &:hover-->
+<!--            background-color: lighten(#ffd200, 10%);-->
+<!--            cursor: pointer;-->
+<!--    }-->
+    .navbar__phone{
+        // color: $text-color
+        display: inline-block;
+        color:#333333;
+        font-size: 20px;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+<!--    .button{-->
+<!--        border-radius: 10px-->
+<!--        background-color: #ffd200-->
+<!--        border: none-->
+<!--        padding: 18px 30px-->
+<!--        &:hover-->
+<!--            background-color: lighten(#ffd200, 10%)-->
+<!--            cursor: pointer-->
+<!--    }-->
+    .hero{
+<!--        padding: 50px 0;-->
+        background-color: #f5f5f5;
+	}
+	.hero-block{
+		display: flex;
+	}
+	.hero-text{
+		flex-basis: 50%;
+		padding-right: 100px;
+	}
+		.hero__title{
+			font-size: 41px;
+<!--		//	font-weight: 800;-->
+			line-height: 55px;
+			margin-bottom: 40px;
+			+bold;
+		}
+    .hero-news{
+    flex-basis: 50%;
+<!--        margin-left: 100;-->
+    }
+		.hero__subtitle{
+			display: inline-block;
+			font-size: 20px;
+			font-weight: 500;
+			margin-bottom: 70px;
+		}
+	.hero-list{
+		margin: 0;
+		padding: 0;
+	}
+
+		.hero__item{
+			display: flex
+			align-items: center
+			margin-bottom: 25px
+<!--			&:last-child-->
+<!--				margin-bottom: 0-->
+        }
+    .btn {
+        font-size: 24px;
+        line-height: 29px;
+        padding: 15px 20px;
+        background: #1DD7C0;
+        margin: 10px 0;
+        color: #fff;
+        border: none;
+    }
+    .btn:hover {
+        background: #1996A0;
+    }
+<!--		.hero__image{-->
+<!--			width: 40px;-->
+<!--			height: 40px;-->
+<!--			border: 2px solid #ffd200;-->
+<!--			display: flex;-->
+<!--			align-items: center;-->
+<!--			justify-content: center;-->
+<!--			border-radius: 60%;-->
+<!--			margin-right: 30px;-->
+<!--		}-->
+
+	.hero__button{
+		font-size: 2.3rem;
+        width: 100%;
+        height: 150px;
+    }
+    h1{
+        justify-content: center;
+        display: flex;
+    }
+<!--@media ( max-width: 1200px)-->
+<!--	.hero-->
+<!--		&-block-->
+<!--			flex-direction: column-->
+<!--		&-list-->
+<!--			margin-bottom: 44px-->
+<!--		&-text -->
+<!--			padding-right: 10px-->
+<!--@media ( max-width: 768px)-->
+<!--	.hero-->
+<!--		&-text -->
+<!--			&__title-->
+<!--				font-size: 24px-->
+<!--				line-height: 1.4-->
+<!--				margin-bottom: 15px-->
+<!--			&__subtitle-->
+<!--				font-size: 16px-->
+<!--				margin-bottom: 28px-->
+<!--		&-list-->
+<!--			&__item-->
+<!--				margin-bottom: 20px-->
+<!--			&__text-->
+<!--				font-size: 12px-->
+<!--			&__image-->
+<!--				margin-right: 15px-->
+</style>

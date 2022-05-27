@@ -7,9 +7,10 @@ from django.db import models
 class Patient(models.Model):
     patient_id = models.AutoField("ID", primary_key=True)
     email = models.EmailField("E-mail", max_length=128)
-    phone_number = models.IntegerField("Phone number", max_length=128)
+    phone = models.IntegerField("Phone number", max_length=128)
     first_name = models.CharField("First Name", max_length=128)
     last_name = models.CharField("Last Name", max_length=128)
+    number = models.CharField(verbose_name='код', max_length=10, blank=True)
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
